@@ -7,7 +7,7 @@ import Link from "next/link";
 import SearchBox from "@/components/SearchBox/SearchBox";
 import Pagination from "@/components/Pagination/Pagination";
 import NoteList from "@/components/NoteList/NoteList";
-import { getNotesByQuery, NoteTag } from "@/lib/api";
+import { getNotesByQuery, NoteTag } from "@/lib/api/clientApi";
 
 import css from "../../Notes.module.css";
 
