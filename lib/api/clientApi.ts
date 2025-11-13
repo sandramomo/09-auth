@@ -16,7 +16,7 @@ interface NotesHttpResponse {
 }
 
 const nextServer = Axios.create({
-  baseURL: 'http://localhost:3000/api',
+  baseURL: 'https://09-auth-indol-eta.vercel.app/api',
   withCredentials: true,
 });
 

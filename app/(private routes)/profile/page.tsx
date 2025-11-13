@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'My profile',
     description: 'Check your latest updates and create your personal notes.',
-    url: 'e',
+    url: 'https://09-auth-indol-eta.vercel.app/profile',
     images: [
       {
         url: 'https://ac.goit.global/fullstack/react/notehub-og-meta.jpg',
