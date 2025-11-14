@@ -7,9 +7,10 @@ import Link from "next/link";
 import SearchBox from "@/components/SearchBox/SearchBox";
 import Pagination from "@/components/Pagination/Pagination";
 import NoteList from "@/components/NoteList/NoteList";
-import { getNotesByQuery, NoteTag } from "@/lib/api/clientApi";
+import { getNotesByQuery } from "@/lib/api/clientApi";
 
 import css from "../../Notes.module.css";
+import { NoteTag } from "@/types/note";
 
 interface NotesClientProps {
   tag?: NoteTag;
@@ -49,14 +50,13 @@ function NotesClient({ tag }: NotesClientProps) {
       {isLoading && <p>Loading notes...</p>}
       {isError && <p>Failed to load notes.</p>}
 
-      {!isLoading && !isError && <NoteList notes={notes} />}
-
-      <div className={css.paginationWrapper}>
-        <Pagination
+      {!isLoading && !isError && notes.length >0 && <NoteList notes={notes} />}
+<div className={css.paginationWrapper}>
+      {!isLoading && !isError && notes.length >0 && <Pagination
           totalPages={totalPages}
           currentPage={currentPage}
           onPageChange={setCurrentPage}
-        />
+        /> }
       </div>
     </div>
   );

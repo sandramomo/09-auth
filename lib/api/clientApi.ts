@@ -1,24 +1,13 @@
-import { NewNote, Note } from "@/types/note";
-import Axios from "axios";
+import { NewNote, Note, NoteTag } from "@/types/note";
+import { User } from "@/types/user";
+import { nextServer } from "./api";
 
-export enum NoteTag {
-  all = '',
-  Work = "Work",
-  Meeting = "Meeting",
-  Personal = "Personal",
-  Shopping = "Shopping",
-  Todo = "Todo",
-}
 
 interface NotesHttpResponse {
   notes: Note[],
   totalPages: number,
 }
 
-const nextServer = Axios.create({
-  baseURL: 'https://09-auth-indol-eta.vercel.app/api',
-  withCredentials: true,
-});
 
 export async function getNotesByQuery(search?: string, page?: number, tag?:NoteTag): Promise<NotesHttpResponse>
 {
@@ -41,16 +30,7 @@ export function fetchNoteById(id: string): Promise<Note> {
 export type RegisterRequest = {
   email: string;
   password: string;
-  userName: string;
-};
-
-export type User = {
-  id: string;
-  email: string;
-  username?: string;
-  photoUrl?: string;
-  createdAt: Date;
-  updatedAt: Date;
+  username: string;
 };
 
 export const register = async (data: RegisterRequest) => {
@@ -85,7 +65,6 @@ export const logout = async (): Promise<void> => {
   await nextServer.post('/auth/logout')
 };
 export type UpdateUserRequest = {
-  email:string,
   username?: string;
 };
 

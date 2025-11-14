@@ -1,4 +1,4 @@
-// import Image from "next/image"
+import Image from "next/image"
 import css from "./profile.module.css"
 import Link from "next/link"
 import { getServerMe } from "@/lib/api/serverApi";
@@ -39,13 +39,13 @@ return (<main className={css.mainContent}>
 	     </Link>
 	   </div>
      <div className={css.avatarWrapper}>
-      {/* <Image
+      <Image
         src="https://ac.goit.global/fullstack/react/notehub-og-meta.jpg"
         alt="User Avatar"
         width={120}
         height={120}
         className={css.avatar}
-      /> */}
+      />
     </div>
     <div className={css.profileInfo}>
       <p>

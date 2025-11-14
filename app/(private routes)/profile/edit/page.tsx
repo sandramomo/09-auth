@@ -1,6 +1,6 @@
-// import Image from "next/image"
-'use client'
 
+'use client'
+import Image from "next/image"
 import { useEffect, useState } from "react"
 import css from "./edit.module.css"
 import { getMe, updateMe } from "@/lib/api/clientApi";
@@ -24,7 +24,7 @@ const router = useRouter();
   };
     const handleSaveUser = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-      await updateMe({ email, username }); 
+      await updateMe({ username }); 
       router.refresh();
     router.push('/profile');
   };
@@ -34,12 +34,12 @@ const router = useRouter();
   <div className={css.profileCard}>
     <h1 className={css.formTitle}>Edit Profile</h1>
 
-    {/* <Image src="https://ac.goit.global/fullstack/react/notehub-og-meta.jpg"
+    <Image src="https://ac.goit.global/fullstack/react/notehub-og-meta.jpg"
       alt="User Avatar"
       width={120}
       height={120}
       className={css.avatar}
-    /> */}
+    />
 
     <form onSubmit={handleSaveUser} className={css.profileInfo}>
       <div className={css.usernameWrapper}>
@@ -58,7 +58,7 @@ const router = useRouter();
         <button type="submit" className={css.saveButton}>
           Save
         </button>
-        <button type="button" className={css.cancelButton}  onClick={() => router.push('/profile')} >
+        <button type="button" className={css.cancelButton}  onClick={() => router.back()} >
           Cancel
         </button>
       </div>
