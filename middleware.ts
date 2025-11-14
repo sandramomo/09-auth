@@ -46,14 +46,6 @@ export async function middleware(request: NextRequest) {
             },
           });
         }
-       if (!isPublicRoute && !isPrivateRoute) {
-          return NextResponse.redirect(new URL('/', request.url), {
-            headers: {
-              Cookie: cookieStore.toString(),
-            },
-          });
-        }
-
       }
     }
     if (isPublicRoute) {
@@ -63,19 +55,14 @@ export async function middleware(request: NextRequest) {
     if (isPrivateRoute) {
       return NextResponse.redirect(new URL('/sign-in', request.url));
     }
-   if (!isPublicRoute && !isPrivateRoute) {
-      return NextResponse.redirect(new URL('/', request.url));
-    }
   }
 
   if (isPublicRoute) {
     return NextResponse.redirect(new URL('/', request.url));
   }
+
   if (isPrivateRoute) {
     return NextResponse.next();
-  }
-    if (!isPublicRoute && !isPrivateRoute) {
-    return NextResponse.redirect(new URL('/', request.url));
   }
 }
 
