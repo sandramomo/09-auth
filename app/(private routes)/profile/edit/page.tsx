@@ -5,10 +5,12 @@ import { useEffect, useState } from "react"
 import css from "./edit.module.css"
 import { getMe, updateMe } from "@/lib/api/clientApi";
 import { useRouter } from "next/navigation";
+import { useAuthStore } from "@/lib/store/authStore";
 
 
 export default function EditProfile() {
-const router = useRouter();
+  const router = useRouter();
+   const setUser = useAuthStore((state) => state.setUser);
   const [username, setUserName] = useState('')
   const [email, setUserEmail] = useState('')
 
@@ -24,7 +26,8 @@ const router = useRouter();
   };
     const handleSaveUser = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-      await updateMe({ username }); 
+    const updatedUser = await updateMe({ username });
+  setUser(updatedUser)
       router.refresh();
     router.push('/profile');
   };

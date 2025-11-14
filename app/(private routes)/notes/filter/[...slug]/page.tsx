@@ -1,5 +1,5 @@
 import { dehydrate, HydrationBoundary, QueryClient } from "@tanstack/react-query";
-import { getNotesByQuery } from "@/lib/api/clientApi";
+import { getNotesByQuery } from "@/lib/api/serverApi";
 import NotesClient from "./Notes.client";
 import { Metadata } from "next";
 import { NoteTag } from "@/types/note";

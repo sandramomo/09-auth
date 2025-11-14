@@ -1,5 +1,6 @@
 'use client'
-import React from "react";
+import { useRouter } from "next/navigation";
+import React, { useEffect } from "react";
 
 export default function SignUpLayout({
   
@@ -7,5 +8,12 @@ export default function SignUpLayout({
 }: {
     children: React.ReactNode;
   }) {
+  
+  const router = useRouter();
+
+  useEffect(() => {
+    router.refresh();
+  }, [router]);
+
   return <>{children}</>;
 }

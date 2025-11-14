@@ -3,7 +3,7 @@ import { User } from "@/types/user";
 import { nextServer } from "./api";
 
 
-interface NotesHttpResponse {
+export interface NotesHttpResponse {
   notes: Note[],
   totalPages: number,
 }
