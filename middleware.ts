@@ -60,7 +60,6 @@ export async function middleware(request: NextRequest) {
   if (isPublicRoute) {
     return NextResponse.redirect(new URL('/', request.url));
   }
-
   if (isPrivateRoute) {
     return NextResponse.next();
   }
